@@ -1,3 +1,14 @@
+
+const operators = [
+  { name: "add", symbol: "+" },
+  { name: "subtract", symbol: "-" },
+  { name: "multiply", symbol: "*" },
+  { name: "divide", symbol: "/" },
+  { name: "exponentiate", symbol: "^" },
+  { name: "negative", symbol: "-/+" },
+  { name: "parenthesesOpen", symbol: "(" },
+  { name: "backspace", symbol: "Backspace" },
+];
 calculator.addEventListener("submit", (e) => {
   e.preventDefault();
 
