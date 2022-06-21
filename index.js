@@ -9,6 +9,11 @@ const operators = [
   { name: "parenthesesOpen", symbol: "(" },
   { name: "backspace", symbol: "Backspace" },
 ];
+
+screen.addEventListener("focus", () => {
+  numberInput.focus();
+});
+
 calculator.addEventListener("submit", (e) => {
   e.preventDefault();
 
