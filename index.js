@@ -1,3 +1,51 @@
+calculator.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  isSubmited = true;
+
+  if (equation.length) {
+    try {
+      result = calculate(equation);
+      if (result !== undefined) {
+        history.push({
+          body: equation.join(" "),
+          result: result,
+        });
+
+        display(equation.join(" "));
+        numberInput.value = result;
+        numberInput.focus();
+      }
+    } catch (e) {
+      if (e === "err/1") {
+        result = "null";
+        display("Wrong Value");
+      }
+    }
+  }
+
+  equation = [];
+  result = 0;
+
+  historyList.innerText = "";
+  history.map((item) => {
+    const historyItem = document.createElement("div");
+    historyItem.className =
+      "w-full p-2 hover:bg-gray-100 cursor-pointer font-medium rounded-lg transition-colors duration-200 ease-in-out";
+    historyItem.addEventListener("click", () => {
+      display(item.result);
+      numberInput.value = item.body.split(" ").join("");
+
+      if (window.innerWidth < 640) {
+        historyContainer.classList.add("-translate-x-full");
+      }
+    });
+
+    historyItem.innerText = `${item.body} = ${item.result}`;
+    historyList.appendChild(historyItem);
+  });
+});
+
 const createButton = (value, id, type, name = "") => {
   const button = document.createElement("button");
 
