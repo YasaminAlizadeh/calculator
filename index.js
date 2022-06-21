@@ -1,4 +1,8 @@
 
+const display = (value) => {
+  resultContainer.innerText = value;
+};
+
 const calculate = (arr) => {
   arr = arr.filter((item) => item !== undefined);
 
