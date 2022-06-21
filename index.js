@@ -298,6 +298,26 @@ const insertToInput = (selectedInput, newValue, newposition = null) => {
   })
 );
 
+numberInput.addEventListener("keydown", function (e) {
+  const pressedBtn = [...document.querySelectorAll("button")].find(
+    (btn) => btn.value === e.key
+  );
+  if (pressedBtn) {
+    e.preventDefault();
+    pressedBtn.click();
+  } else {
+    if (
+      e.key === "Enter" ||
+      e.key === "ArrowLeft" ||
+      e.key === "ArrowRight" ||
+      e.key === "Delete" ||
+      e.key === " "
+    )
+      return;
+    else e.preventDefault();
+  }
+});
+
 
 const changeTheme = () => {
   const theme = localStorage.getItem("theme");
