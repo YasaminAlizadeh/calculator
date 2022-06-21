@@ -5,6 +5,16 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  body {
+    background: #f2f3f7;
+    transition: theme("transitionProperty.colors")
+      theme("transitionDuration.100") theme("transitionTimingFunction.in-out");
+  }
+
+  body.dark {
+    background: theme("colors.gray.800");
+  }
 
   .theme__btn,
   .history__btn {
