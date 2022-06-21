@@ -33,6 +33,24 @@
       id="calculator"
       class="flex flex-col gap-10 w-[85%] max-w-lg font-ChakraPetch"
     >
+      <div id="calc-btns" class="calc__btns grid grid-cols-4 gap-4">
+        <button
+          id="clear-btn"
+          type="button"
+          class="btn btn--operator"
+          style="grid-area: btn-c/btn-c/btn-c/btn-c"
+        >
+          <span>C</span>
+        </button>
+        <button
+          id="calculate-btn"
+          class="btn btn--operator btn--equals"
+          style="grid-area: btn-equals/btn-equals/btn-equals/btn-equals"
+          type="submit"
+        >
+          <span>=</span>
+        </button>
+      </div>
     </form>
 
     <div
