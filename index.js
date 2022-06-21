@@ -81,6 +81,16 @@ const createButton = (value, id, type, name = "") => {
   BtnsContainer.appendChild(button);
 };
 
+[...Array(10).keys()].map((num) => {
+  createButton(num, num, "number");
+});
+
+operators.map((operator) => {
+  const { name, symbol } = operator;
+
+  createButton(symbol, name, "operator", name);
+});
+
 const display = (value) => {
   resultContainer.innerText = value;
 };
