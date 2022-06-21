@@ -1,4 +1,20 @@
 
+const insertToInput = (selectedInput, newValue, newposition = null) => {
+  let cursorPosition = selectedInput.selectionEnd;
+
+  selectedInput.focus();
+  selectedInput.value =
+    selectedInput.value.slice(0, cursorPosition) +
+    newValue +
+    selectedInput.value.slice(cursorPosition);
+
+  cursorPosition = newposition || cursorPosition;
+  selectedInput.setSelectionRange(
+    cursorPosition + newValue.length,
+    cursorPosition + newValue.length
+  );
+};
+
 ["input", "propertychange"].forEach((event) =>
   numberInput.addEventListener(event, (e) => {
     if (e.target.value) {
