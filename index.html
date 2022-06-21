@@ -33,6 +33,19 @@
       id="calculator"
       class="flex flex-col gap-10 w-[85%] max-w-lg font-ChakraPetch"
     >
+      <div
+        id="calc-screen"
+        class="relative calc__screen grid grid-rows-[minmax(0,1fr)_minmax(0,2fr)] bg-sage-300 p-4 font-bold rounded-lg after:absolute after:top-1/2 after:left-1/2 after:-translate-x-1/2 after:-translate-y-1/2 after:z-[-1] after:w-[104%] after:h-[120%] after:rounded-lg"
+        tabindex="0"
+      >
+        <div id="result" class="text-[125%] font-normal">0</div>
+        <input
+          id="number-input"
+          type="text"
+          class="w-full bg-transparent break-words text-[300%] resize-none focus-within:outline-none"
+        />
+      </div>
+
       <div id="calc-btns" class="calc__btns grid grid-cols-4 gap-4">
         <button
           id="clear-btn"
