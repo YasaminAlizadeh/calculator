@@ -1,4 +1,14 @@
 
+["input", "propertychange"].forEach((event) =>
+  numberInput.addEventListener(event, (e) => {
+    if (e.target.value) {
+      equation = [...checkInput(e.target.value)];
+      display(e.target.value);
+    }
+  })
+);
+
+
 const changeTheme = () => {
   const theme = localStorage.getItem("theme");
 
