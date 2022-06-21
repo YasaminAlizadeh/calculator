@@ -6,6 +6,10 @@
 @tailwind utilities;
 
 
+  .calc__btns {
+    grid-template-areas: "btn-c btn-add btn-subtract btn-backspace" "btn-1 btn-2 btn-3 btn-multiply" "btn-4 btn-5 btn-6 btn-divide" "btn-7 btn-8 btn-9 btn-exponentiate" "btn-parenthesesOpen btn-0 btn-negative btn-equals";
+  }
+
   .btn {
     background-color: #f2f3f7;
     color: #212c3f;
