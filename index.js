@@ -1,3 +1,85 @@
+const createButton = (value, id, type, name = "") => {
+  const button = document.createElement("button");
+
+  button.id = id;
+  button.value = value;
+
+  const btnText = document.createElement("span");
+  btnText.innerText = value;
+
+  button.appendChild(btnText);
+
+  button.className = `btn ${
+    type === "number" ? `btn--number` : `btn--operator`
+  }`;
+  button.style.gridArea = type === "number" ? `btn-${value}` : `btn-${name}`;
+
+  if (button.value === "(") btnText.innerText = "( )";
+  else if (button.value === "Backspace") btnText.innerText = "\u27F5";
+  else if (button.value === "^") btnText.innerHTML = "x <sup>y</sup>";
+  else if (button.value === "*") btnText.innerHTML = "×";
+
+  button.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    isSubmited = false;
+
+    // Don't accept duplicate operators
+    if (
+      type === "operator" &&
+      button.value !== "(" &&
+      button.value !== "Backspace" &&
+      equation[equation.length - 1] === button.value
+    ) {
+      numberInput.focus();
+      return;
+    }
+
+    switch (button.value) {
+      // if the clicked button is for erasing, erase from where the cursor is
+      case "Backspace":
+        const cursorPosition = numberInput.selectionEnd;
+
+        if (cursorPosition > 0) {
+          const temp = numberInput.value.split("");
+          temp.splice(cursorPosition - 1, 1);
+          numberInput.value = temp.join("");
+          numberInput.focus();
+
+          numberInput.setSelectionRange(cursorPosition - 1, cursorPosition - 1);
+
+          equation = !numberInput.value && [];
+        }
+        break;
+
+      // else if the clicked button is for adding, add based on the value and where the cursor is
+      case "-/+":
+        insertToInput(numberInput, "(-)", numberInput.selectionEnd - 1);
+        break;
+
+      case "(":
+        insertToInput(numberInput, "()", numberInput.selectionEnd - 1);
+        break;
+
+      default:
+        insertToInput(numberInput, button.value);
+        break;
+    }
+    if (numberInput.value.length >= 16) {
+      numberInput.value = numberInput.value.slice(0, 15);
+    }
+
+    if (numberInput.value) {
+      equation = [...checkInput(numberInput.value)];
+    }
+
+    equation.length && calculate(equation)
+      ? display(calculate(equation))
+      : display("");
+  });
+
+  BtnsContainer.appendChild(button);
+};
 
 const display = (value) => {
   resultContainer.innerText = value;
