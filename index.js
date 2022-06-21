@@ -1,4 +1,13 @@
 
+const removeDuplicates = (arr) => {
+  return (
+    arr.length &&
+    arr.filter(
+      (item, index, arr) => ["(", ")"].includes(item) || item !== arr[index - 1]
+    )
+  );
+};
+
 const insertToInput = (selectedInput, newValue, newposition = null) => {
   let cursorPosition = selectedInput.selectionEnd;
 
