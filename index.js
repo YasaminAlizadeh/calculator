@@ -24,3 +24,13 @@ themeBtn.addEventListener("click", () => {
 
   changeTheme();
 });
+
+historyBtn.addEventListener("click", () => {
+  historyContainer.classList.toggle("-translate-x-full");
+});
+
+window.addEventListener("click", (e) => {
+  if (!historyContainer.contains(e.target) && !historyBtn.contains(e.target)) {
+    historyContainer.classList.add("-translate-x-full");
+  }
+});
