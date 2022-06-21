@@ -318,6 +318,12 @@ numberInput.addEventListener("keydown", function (e) {
   }
 });
 
+clearBtn.addEventListener("click", () => {
+  equation = [];
+  result = 0;
+  numberInput.value = "";
+  display(result);
+});
 
 const changeTheme = () => {
   const theme = localStorage.getItem("theme");
