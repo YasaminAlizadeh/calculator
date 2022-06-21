@@ -1,3 +1,14 @@
+const calculator = document.querySelector("#calculator");
+const screen = document.querySelector("#calc-screen");
+const BtnsContainer = document.querySelector("#calc-btns");
+const numberInput = document.querySelector("#number-input");
+const calculateBtn = document.querySelector("#calculate-btn");
+const clearBtn = document.querySelector("#clear-btn");
+const resultContainer = document.querySelector("#result");
+const themeBtn = document.querySelector("#theme-btn");
+const historyContainer = document.querySelector("#history-container");
+const historyBtn = document.querySelector("#history-btn");
+const historyList = document.querySelector("#history");
 
 const operators = [
   { name: "add", symbol: "+" },
@@ -9,6 +20,11 @@ const operators = [
   { name: "parenthesesOpen", symbol: "(" },
   { name: "backspace", symbol: "Backspace" },
 ];
+
+let equation = [];
+let result = 0;
+let history = [];
+let isSubmited = false;
 
 screen.addEventListener("focus", () => {
   numberInput.focus();
