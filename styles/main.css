@@ -6,6 +6,47 @@
 @tailwind utilities;
 
 
+  .calc__screen {
+    background-image: repeating-linear-gradient(
+      90deg,
+      theme("colors.transparent"),
+      theme("colors.transparent") 15px,
+      #00000009 15px,
+      #00000009 16px
+    );
+    box-shadow: inset 0 1rem 1rem 0.5rem #00000035,
+      0 0 0.05rem 0.2rem rgba(255, 255, 255, 0.35);
+  }
+
+  .dark .calc__screen {
+    background-color: theme("colors.sage.400");
+    box-shadow: inset 0 1rem 1rem 0.5rem #00000035,
+      0 0 0.05rem 0.2rem rgba(255, 255, 255, 0.15);
+  }
+
+  .calc__screen::after {
+    background-image: linear-gradient(
+      to right,
+      rgba(8, 29, 94, 0.1) 45%,
+      transparent
+    );
+    box-shadow: inset 0 0 0.5rem 0.5rem rgba(255, 255, 255, 0.45),
+      0 0.25rem 2rem 1rem rgba(255, 255, 255, 0.45),
+      inset 0 -0.25rem 0.5rem -0.2rem rgba(8, 29, 94, 0.2),
+      0 0 0.5rem 0.1rem rgba(8, 29, 94, 0.2);
+  }
+
+  .dark .calc__screen::after {
+    background-image: linear-gradient(
+      to right,
+      rgba(8, 29, 94, 0.1) 45%,
+      transparent
+    );
+    box-shadow: inset 0 0.5rem 0.5rem -0.5rem rgba(255, 255, 255, 0.05),
+      0 -0.5rem 0.5rem -0.5rem rgba(255, 255, 255, 0.25),
+      inset 0 -0.25rem 0.5rem -0.2rem #141c2a, 0 0 0.5rem 0.25rem #141c2a;
+  }
+
   .calc__btns {
     grid-template-areas: "btn-c btn-add btn-subtract btn-backspace" "btn-1 btn-2 btn-3 btn-multiply" "btn-4 btn-5 btn-6 btn-divide" "btn-7 btn-8 btn-9 btn-exponentiate" "btn-parenthesesOpen btn-0 btn-negative btn-equals";
   }
