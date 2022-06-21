@@ -1,3 +1,29 @@
+
+const calculate = (arr) => {
+  arr = arr.filter((item) => item !== undefined);
+
+  while (arr.includes("(")) {
+    doMath(arr, "(");
+  }
+  while (arr.includes("^")) {
+    doMath(arr, "^");
+  }
+  while (arr.includes("*")) {
+    doMath(arr, "*");
+  }
+  while (arr.includes("/")) {
+    doMath(arr, "/");
+  }
+  while (arr.includes("-")) {
+    doMath(arr, "-");
+  }
+  while (arr.includes("+")) {
+    doMath(arr, "+");
+  }
+
+  return arr.length === 1 ? arr[0] : undefined;
+};
+
 const doMath = (arr, operator) => {
   const index = arr.findIndex((item) => item === operator);
 
