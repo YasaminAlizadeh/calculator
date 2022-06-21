@@ -6,6 +6,76 @@
 @tailwind utilities;
 
 
+  .btn {
+    background-color: #f2f3f7;
+    color: #212c3f;
+    border-radius: theme("borderRadius.3xl");
+    padding: min(5vw, theme("spacing.6"));
+    box-shadow: 0 -0.35rem 0.5rem -0.1rem rgba(255, 255, 255, 1),
+      inset 0 0.5rem 0.75rem -0.5rem rgba(255, 255, 255, 1),
+      inset 0 -0.5rem 0.75rem -0.5rem rgba(8, 29, 94, 0.35),
+      0 0.25rem 0.75rem -0.2rem rgba(8, 29, 94, 0.35);
+    font-weight: theme("fontWeight.bold");
+    font-size: min(5vw, 100%);
+    transition: theme("transitionProperty.colors")
+        theme("transitionDuration.100") theme("transitionTimingFunction.in-out"),
+      theme("transitionProperty.shadow") theme("transitionDuration.100")
+        theme("transitionTimingFunction.in-out");
+  }
+
+  .dark .btn {
+    background: #212c3f;
+    box-shadow: 0 -0.35rem 0.5rem -0.1rem rgba(255, 255, 255, 0.035),
+      inset 0 0.5rem 0.75rem -0.5rem rgba(255, 255, 255, 0.15),
+      inset 0 -0.85rem 0.75rem -0.5rem #141c2a, 0 0.5rem 0.85rem -0.2rem #141c2a;
+  }
+
+  .btn:active {
+    background-color: #eceef3;
+    box-shadow: 0 -0.35rem 0.5rem -0.1rem rgba(255, 255, 255, 1),
+      inset 0 0.5rem 0.5rem -0.5rem rgba(255, 255, 255, 1),
+      inset 0 0.5rem 0.75rem -0.5rem rgba(8, 29, 94, 0.45),
+      0 0.25rem 0.75rem -0.2rem rgba(8, 29, 94, 0.15);
+  }
+
+  .btn:active span {
+    display: block;
+    transform: translateY(10%);
+  }
+
+  .dark .btn:active {
+    background: #1e2839;
+    box-shadow: 0 -0.35rem 0.5rem -0.1rem rgba(255, 255, 255, 0.035),
+      inset 0 -0.5rem 0.5rem -0.75rem rgba(255, 255, 255, 0.15),
+      inset 0 0.5rem 0.75rem -0.25rem #141c2a, 0 0.25rem 0.75rem -0.2rem #141c2a;
+  }
+
+  .dark .btn--number {
+    color: theme("colors.gray.300");
+  }
+
+  .dark .btn--number:active {
+    color: theme("colors.gray.400");
+  }
+
+  .btn--operator {
+    background: #ebedf5;
+    color: theme("textColor.amber.600");
+  }
+
+  .btn--operator:active {
+    background: #ebedf5;
+    color: theme("textColor.amber.700");
+  }
+
+  .dark .btn--operator {
+    background: #273349;
+  }
+
+  .dark .btn--operator:active {
+    background: #242e42;
+  }
+
   ::-webkit-scrollbar {
     width: 0.25rem;
   }
@@ -22,3 +92,4 @@
   ::-webkit-scrollbar-thumb:hover {
     background: #888;
   }
+}
