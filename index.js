@@ -1,4 +1,14 @@
 
+const checkInput = (value) => {
+  let inputArr = value.match(/[/\+\-\*\/\^\(\)/i]|[\d]+/g);
+  inputArr = removeDuplicates(inputArr);
+  console.log(value);
+
+  return inputArr.map((item) =>
+    !isNaN(item) && !isNaN(parseFloat(item)) ? +item : item
+  );
+};
+
 const removeDuplicates = (arr) => {
   return (
     arr.length &&
