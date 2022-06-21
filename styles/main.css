@@ -6,6 +6,16 @@
 @tailwind utilities;
 
 
+  .theme__btn,
+  .history__btn {
+    color: theme("colors.gray.800");
+  }
+
+  .dark .theme__btn,
+  .dark .history__btn {
+    color: theme("colors.gray.300");
+  }
+
   .calc__screen {
     background-image: repeating-linear-gradient(
       90deg,
