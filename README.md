@@ -56,8 +56,8 @@ This is a static website built with vanilla HTML, CSS, and JavaScript, but it us
 
 1.  **Clone the repository:**
     ```bash
-    git clone https://github.com/YasaminAlizadeh/neumorphic-calculator.git
-    cd neumorphic-calculator
+    git clone https://github.com/YasaminAlizadeh/calculator.git
+    cd calculator
     ```
 
 2.  **Open `index.html`:**
